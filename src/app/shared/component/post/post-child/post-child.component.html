@@ -1,0 +1,27 @@
+<h1 class="bg-dark text-center text-white">Card-Task Using Input-Decorater...!!!</h1>
+<div class="container ">
+    <div class="row">
+        <div class="col-md-3 mt-4 " *ngFor="let post of postArr" ; else nopost>
+            <div class="card h-100">
+                <div class="card-header cardtitle">
+                    <h1>{{post.title}}</h1>
+                </div>
+                <div class="card-body">
+                    <p>{{post.body}}</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+
+                    <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <ng-template #nopost>
+            <p class="alert alert-info">post data is not yet..?</p>
+        </ng-template>
+    </div>
+</div>

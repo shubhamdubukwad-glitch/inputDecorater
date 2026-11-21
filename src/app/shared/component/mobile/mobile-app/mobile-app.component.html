@@ -1,0 +1,36 @@
+<h1 class="bg-dark text-center text-white mt-5 p-3">Mobile Task using Input-Decorater..!!</h1>
+<div class="container">
+    <div class="row" *ngFor="let mob of mobileArr">
+        <div class="col-md-12">
+            <ng-container>
+                <div class="row" [ngClass]="{
+                    'blur' : mob.availableStock < 4
+                }">
+                <h1  *ngIf="mob.availableStock < 4" class="text-danger infocenter">Product is out of stock</h1>
+                    <div class="col-md-3">
+                        <figure>
+                            <img [src]="mob.productImg || 'https://projectexports.com/assets/images/product_default.jpg'"
+                                [alt]="mob.productName" [title]="mob.productName">
+                        </figure>
+                    </div>
+                    <div class="col-md-6">
+                        <h1 class="m-0">{{mob.productName}}</h1>
+                        <h4 class="m-0">Features :</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" *ngFor="let mob of mob.features">
+                                {{mob}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <h2 class="m-0">{{mob.price | currency :'INR'}}</h2>
+                        <h3 class="m-0"><del>({{mob.originalPrice | currency:'INR'}})</del></h3>
+                        <h3 class="m-0 ml-4 text-danger" *ngIf="mob.availableStock < 4; ">{{mob.availableStock + ' items
+                            left only'}}</h3>
+                            </div>
+                            
+                            </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

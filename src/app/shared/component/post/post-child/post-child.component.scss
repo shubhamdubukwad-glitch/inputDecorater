@@ -1,0 +1,9 @@
+body{
+    background-color: rgb(186, 193, 193);
+}
+
+.cardtitle{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
